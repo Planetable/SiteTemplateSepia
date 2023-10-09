@@ -1,0 +1,23 @@
+<div class="item">
+  <div class="time-box">
+    <div class="dot"></div>
+    <div class="time">{{ article.created|formatDate }}</div>
+  </div>
+  <!-- box for HTML content -->
+  {% if article.title.count > 0 %}
+  <div class="title-box">
+    {{ article.title|escape }}
+  </div>
+  {% endif %}
+  {% if article.content.count > 0 %}
+  <div class="text-box">
+    {{ article.content }}
+  </div>
+  {% endif %}
+  {% if article.heroImage != nil %}
+  <!-- box for image with object-fit and aspect-ratio -->
+  <div class="image-box">
+    <img src="{{ article.heroImage }}" />
+  </div>
+  {% endif %}
+</div>

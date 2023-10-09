@@ -1,0 +1,13 @@
+{
+    "name": "Sepia",
+    "description": "A sepia template designed for microblogging",
+    "author": "Planetable Team",
+    "authorWebsite": "https://planetable.xyz",
+    "version": "0.0.1",
+    "idealItemsPerPage": 20,
+    "generateIndexPagination": true,
+    "generateTagPages": true,
+    "generateArchive": true,
+    "buildNumber": 1
+  }
+  

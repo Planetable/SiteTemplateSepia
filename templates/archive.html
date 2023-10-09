@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block main %}
+{% include "modules/site_header.html" %}
+<div class="section-title">Archive</div>
+
+<!-- START: archive list -->
+<div class="archive-list">
+  {% for item in archive_sections %}
+  <div class="archive-list-header">{{ item|escape }}</div>
+  {% for article in archive[item] %}
+  <div class="archive-list-item">
+    <a href="{{ assets_prefix }}{{ article.id }}/">{% if article.title.count > 0 %}{{ article.title|escape }}{% else %}{{ article.content.prefix(40)|escape }}{% endif %}</a>
+  </div>
+  {% endfor %}
+  {% endfor %}
+</div>
+<!-- END: archive list -->
+
+{% endblock %}

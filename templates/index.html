@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block main %}
+{% include "modules/site_header.html" %}
+{% if tag_key %}
+<div class="section-title">{{ tag_value }}</div>
+{% endif %}
+<div class="items">
+  {% for article in articles %}
+  {% include "modules/item.html" %}
+  {% endfor %}
+</div>
+{% endblock %}

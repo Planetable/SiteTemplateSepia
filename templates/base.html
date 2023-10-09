@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>{% block title %}{{ page_title|escape }}{% endblock %}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" href="./assets/img/icon.png">
+
+  <link rel="stylesheet" href="{{ assets_prefix }}assets/normalize.css">
+  <link rel="stylesheet" href="{{ assets_prefix }}assets/style.css">
+
+  <meta name="theme-color" content="#f4f1ec">
+</head>
+
+<body>
+  <div id="wrapper">
+  <div id="container">
+    <div id="main-container">
+      {% block main %}
+      {% endblock %}
+    </div>
+    <div id="aside-container">
+      {% block aside %}
+      <div class="nav">
+        <div class="nav-item">
+          <img class="nav-icon" />
+          <a href="{{ assets_prefix }}index.html" class="nav-link">Home</a>
+        </div>
+        {% for item in site_navigation %}
+        <div class="nav-item">
+          <img class="nav-icon" />
+          <a href="{% if item.externalLink.count > 0 %}{{ item.externalLink }}{% else %}{{ assets_prefix }}{% if item.slug.count > 0 %}{{ item.slug }}{% else %}{{ item.id }}{% endif %}/{% endif %}" class="nav-link"{% if item.externalLink.count > 0 %} target="_blank"{% endif %}>{{ item.title|escape }}</a>
+        </div>
+        {% endfor %}
+        <div class="nav-item">
+          <img class="nav-icon" />
+          <a href="{{ assets_prefix }}tags.html" class="nav-link">Tags</a>
+        </div>
+        <div class="nav-item">
+          <img class="nav-icon" />
+          <a href="{{ assets_prefix }}archive.html" class="nav-link">Archive</a>
+        </div>
+      </div>
+      {% endblock %}
+    </div>
+  </div>
+  </div>
+</body>
+</html>
