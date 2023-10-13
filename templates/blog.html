@@ -11,14 +11,21 @@ if (window.PLANET.visitedFromPlanetClient) {
     main.style.marginRight = "0";
   }
 }
+
+const todos = document.querySelectorAll('li:has(input[type="checkbox"])');
+let i = 1;
+todos.forEach(item => {
+  item.id = "todo-item-" + i;
+  i++;
+});
 {% endblock %}
 {% block main %}
 <div id="breadcrumb">
-    <img src="{{ assets_prefix }}avatar.png" class="breadcrumb-avatar" />
+    <img src="{% if has_avatar %}{{ assets_prefix }}avatar.png{% else %}https://zora.co/api/avatar/{{ planet_ipns }}{% endif %}" class="breadcrumb-avatar" />
     <div class="breadcrumb-title"><a href="{{ assets_prefix }}index.html">{{ planet.name|escape }}</a></div>
 </div>
 {% include "modules/item.html" %}
-<style>
+<style type="text/css">
 .item {
   margin-left: 7px;
 }

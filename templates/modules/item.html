@@ -10,11 +10,15 @@
   </div>
   {% endif %}
   {% if article.content.count > 0 %}
-  <div class="text-box"{% if current_item_type == "blog" %} id="main-content"{% endif %}>
+  <div class="text-box content"{% if current_item_type == "blog" %} id="main-content"{% endif %}>
     {% if current_item_type == "blog" %}
     {{ content_html }}
     {% else %}
-    {{ article.content }}
+      {% if article.contentRendered.count > 0 %}
+        {{ article.contentRendered }}
+      {% else %}
+        {{ article.content }}
+      {% endif %}
     {% endif %}
   </div>
   {% endif %}

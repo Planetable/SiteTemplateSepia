@@ -1,7 +1,9 @@
 <div id="header">
-  <a href="{{ assets_prefix }}index.html"><img src="./avatar.png" class="header-avatar" border="0" /></a>
+  <a href="{{ assets_prefix }}index.html"><img src="{% if has_avatar %}{{ assets_prefix }}avatar.png{% else %}https://zora.co/api/avatar/{{ planet_ipns }}{% endif %}" class="header-avatar" border="0" /></a>
   <div class="header-title"><a href="{{ assets_prefix }}index.html">{{ planet.name|escape }}</a></div>
 </div>
+{% if page_description_html.count > 0 %}
 <div class="text-box" id="site-intro">
   {{ page_description_html }}
 </div>
+{% endif %}
