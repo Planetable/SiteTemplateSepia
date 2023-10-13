@@ -3,6 +3,7 @@
   --box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   --box-margin: 10px;
   --border-color: rgba(0, 0, 0, 0.05);
+  --link-color: orangered;
 }
 
 body {
@@ -25,6 +26,15 @@ a:visited {
 
 a:hover {
   color: #000;
+  text-decoration: underline;
+}
+
+a.item-link:link, a.item-link:visited {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a.item-link:hover {
   text-decoration: underline;
 }
 
@@ -68,7 +78,7 @@ a:hover {
 }
 
 #breadcrumb {
-  padding: 10px 10px 10px 10px;
+  padding: 10px 0px 10px 0px;
   margin-bottom: 20px;
   font-weight: 600;
   display: flex;
@@ -90,12 +100,26 @@ a:hover {
   margin-left: 10px;
 }
 
+hr {
+  border: none;
+  height: 2px;
+  color: var(--border-color);
+  background-color: var(--border-color);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .page-title {
   padding: 10px 10px 10px 10px;
   margin-bottom: 10px;
   font-weight: 600;
   font-size: 20px;
   line-height: 1;
+}
+
+#main-content {
+  font-size: 17px;
+  line-height: 24px;
 }
 
 #site-intro {
@@ -175,12 +199,12 @@ a:hover {
   width: 8px;
   height: 8px;
   border-radius: 8px;
-  background-color: orangered;
+  background-color: var(--link-color);
 }
 
 .time-box>.time {
   flex: 1;
-  color: orangered;
+  color: var(--link-color);
   font-size: 14px;
   font-weight: 500;
   padding-left: 10px;

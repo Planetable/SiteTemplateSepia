@@ -1,8 +1,26 @@
 {% extends "base.html" %}
+{% block dom_ready %}
+if (window.PLANET.visitedFromPlanetClient) {
+  let aside = document.getElementById("aside-container");
+  if (aside) {
+    aside.style.display = "none";
+  }
+  let main = document.getElementById("main-container");
+  if (main) {
+    main.style.borderRight = "none";
+    main.style.marginRight = "0";
+  }
+}
+{% endblock %}
 {% block main %}
 <div id="breadcrumb">
     <img src="{{ assets_prefix }}avatar.png" class="breadcrumb-avatar" />
     <div class="breadcrumb-title"><a href="{{ assets_prefix }}index.html">{{ planet.name|escape }}</a></div>
 </div>
 {% include "modules/item.html" %}
+<style>
+.item {
+  margin-left: 7px;
+}
+</style>
 {% endblock %}

@@ -14,6 +14,18 @@
   <link rel="stylesheet" href="{{ assets_prefix }}assets/style.css">
 
   <meta name="theme-color" content="#f4f1ec">
+  <script>
+    let userAgentRegex = /Planet\/\S*/;
+    window.PLANET = {
+      visitedFromPlanetClient: !!navigator.userAgent.match(userAgentRegex),
+      assetsPrefix: '{{ assets_prefix }}',
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+    {% block dom_ready %}
+    {% endblock %}
+    });
+  </script>
 </head>
 
 <body>
