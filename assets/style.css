@@ -159,6 +159,16 @@ hr {
   text-wrap: pretty;
 }
 
+.item figure {
+  margin-inline-start: 0px;
+  margin-inline-end: 10px;
+}
+
+.item figcaption {
+  color: #666;
+  font-size: 0.8em;
+}
+
 .image-box {
   border-left: 2px solid var(--border-color);
   padding: 30px 0px 30px 30px;
@@ -415,6 +425,7 @@ hr {
   max-height: 80vh;
   object-fit: cover;
   border-radius: 8px;
+  border: 1px solid var(--border-color);
   box-shadow: var(--shadows)
 }
 
