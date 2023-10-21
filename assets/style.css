@@ -167,6 +167,7 @@ hr {
   border-radius: 8px;
   margin-bottom: 10px;
   box-shadow: var(--shadows);
+  border: 1px solid var(--border-color);
 }
 
 .title-box {

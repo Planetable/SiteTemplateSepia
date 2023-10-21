@@ -1,4 +1,10 @@
-<div class="item">
+<div class="item"
+     data-article-id="{{ article.id }}"
+     data-hero-image-filename="{{ article.heroImageFilename }}"
+     data-title-length="{{ article.title.count }}"
+     data-content-length="{{ article.content.count }}"
+     data-page-type="{{ current_item_type }}"
+>
   <div class="time-box">
     <div class="dot"></div>
     <div class="time"><a href="{{ assets_prefix }}{{ article.id }}/" class="item-link">{{ article.created|formatDate }}</a></div>
@@ -20,12 +26,6 @@
         {{ article.content }}
       {% endif %}
     {% endif %}
-  </div>
-  {% endif %}
-  {% if article.heroImage != nil %}
-  <!-- box for image with object-fit and aspect-ratio -->
-  <div class="image-box">
-    <img src="{{ assets_prefix }}{{ article.id }}/{{ article.heroImageFilename }}" />
   </div>
   {% endif %}
 </div>

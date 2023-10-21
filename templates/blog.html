@@ -18,6 +18,12 @@ todos.forEach(item => {
   item.id = "todo-item-" + i;
   i++;
 });
+
+const items = document.querySelectorAll('.item');
+const item = items[0];
+if (item) {
+  decorateItem(item);
+}
 {% endblock %}
 {% block main %}
 <div id="breadcrumb">

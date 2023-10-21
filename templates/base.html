@@ -14,7 +14,8 @@
   <link rel="stylesheet" href="{{ assets_prefix }}assets/style.css">
 
   <meta name="theme-color" content="#f4f1ec">
-  <script>
+  <script src="{{ assets_prefix }}assets/sepia.js" type="text/javascript"></script>
+  <script type="text/javascript">
     let userAgentRegex = /Planet\/\S*/;
     window.PLANET = {
       visitedFromPlanetClient: !!navigator.userAgent.match(userAgentRegex),
