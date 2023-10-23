@@ -1,7 +1,7 @@
 const getCleanerURL = (url) => {
   const parsedUrl = new URL(url);
   let path = parsedUrl.pathname;
-  
+
   // Remove the file part, if present
   if (path.lastIndexOf('/') !== path.length - 1) {
     path = path.substring(0, path.lastIndexOf('/') + 1);
@@ -12,9 +12,12 @@ const getCleanerURL = (url) => {
 
 const decorateItem = (item) => {
   const articleId = item.dataset.articleId;
+  const articleSlug = item.dataset.articleSlug;
   const titleLength = item.dataset.titleLength;
   const contentLength = item.dataset.contentLength;
   const pageType = item.dataset.pageType;
+  let prefix = getCleanerURL(window.location.href);
+  console.log(`Decorating: ${articleId} ${articleSlug} ${titleLength} ${contentLength} ${pageType} ${prefix}`);
   // Fix relative paths
   let imgs = item.querySelectorAll('img');
   let itemHasImgs = false;
@@ -23,15 +26,32 @@ const decorateItem = (item) => {
     if (src) {
       itemHasImgs = true;
     }
-    if (!src.startsWith("https://") && !src.startsWith("http://") && !src.startsWith("/")) {
-      // It is a relative path
-      let prefix = getCleanerURL(window.location.href);
-      if (!prefix.includes(articleId) && !src.includes(articleId)) {
-        let fixedSrc = `${prefix}${articleId}/${src}`;
-        img.setAttribute("src", fixedSrc);
-      } else {
-        console.log(`No need to fix prefix for ${src}`);
+    let needsToFix = false;
+    if (pageType == "blog") {
+    } else {
+      if (!src.startsWith("https://") && !src.startsWith("http://") && !src.startsWith("/")) {
+        // It is a relative path
+        console.log(`Relative path found src=${src}`);
+        console.log(`prefix=${prefix}`);
+        if (articleSlug) {
+          if (!prefix.includes(articleSlug)) {
+            console.log(`prefix does not include articleSlug=${articleSlug}`);
+            needsToFix = true;
+          }
+        } else {
+          if (!prefix.includes(articleId) && !src.includes(articleId)) {
+            console.log(`prefix and src does not include articleId=${articleId}`);
+            needsToFix = true;
+          }
+        }
       }
+    }
+    console.log(`needsToFix=${needsToFix} src=${src} on this pageType=${pageType}`);
+    if (needsToFix === true) {
+      let fixedSrc = `${prefix}${articleId}/${src}`;
+      img.setAttribute("src", fixedSrc);
+    } else {
+      console.log(`No need to fix src=${src} on this pageType=${pageType}`);
     }
   }
   // Append hero image as img-box if no img tag is present
