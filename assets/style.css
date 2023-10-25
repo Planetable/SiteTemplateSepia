@@ -416,7 +416,7 @@ hr {
 }
 
 .content pre {
-  text-wrap: pretty;
+  white-space: pre-wrap;
 }
 
 .content figure {
