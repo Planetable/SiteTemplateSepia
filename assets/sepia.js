@@ -11,13 +11,36 @@ const getCleanerURL = (url) => {
 }
 
 const decorateItem = (item) => {
+  const itemLink = item.dataset.itemLink;
   const articleId = item.dataset.articleId;
+  const articleCreated = Math.round(item.dataset.articleCreated * 1000);
   const articleSlug = item.dataset.articleSlug;
   const titleLength = item.dataset.titleLength;
   const contentLength = item.dataset.contentLength;
   const pageType = item.dataset.pageType;
   let prefix = getCleanerURL(window.location.href);
   console.log(`Decorating: ${articleId} ${articleSlug} ${titleLength} ${contentLength} ${pageType} ${prefix}`);
+  // Set item time
+  let time = item.querySelector('.time');
+  if (time) {
+    const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    let d = new Date(articleCreated);
+    let ds = d.toLocaleDateString(undefined, dateOptions);
+    let ts = d.toLocaleTimeString(undefined, {hour: '2-digit', minute:'2-digit'});
+    let s = ds + ' - ' + ts;
+    if (pageType == "blog") {
+      time.textContent = s;
+    } else {
+      // Wrap time in link
+      let timeLink = document.createElement("a");
+      timeLink.setAttribute("href", itemLink);
+      timeLink.setAttribute("title", s);
+      timeLink.classList.add("item-link");
+      timeLink.textContent = s;
+      time.textContent = '';
+      time.appendChild(timeLink);
+    }
+  }
   // Fix relative paths
   let imgs = item.querySelectorAll('img');
   let itemHasImgs = false;

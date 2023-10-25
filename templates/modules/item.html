@@ -1,6 +1,8 @@
 <div class="item"
+     data-item-link="{{ assets_prefix }}{{ article.id }}/"
      data-article-id="{{ article.id }}"
      data-article-slug="{{ article.slug }}"
+     data-article-created="{{ article.created.timeIntervalSince1970 }}"
      data-hero-image-filename="{{ article.heroImageFilename }}"
      data-title-length="{{ article.title.count }}"
      data-content-length="{{ article.content.count }}"
@@ -8,7 +10,7 @@
 >
   <div class="time-box">
     <div class="dot"></div>
-    <div class="time"><a href="{{ assets_prefix }}{{ article.id }}/" class="item-link">{{ article.created|formatDate }}</a></div>
+    <div class="time">&nbsp;</div>
   </div>
   <!-- box for HTML content -->
   {% if article.title.count > 0 %}
