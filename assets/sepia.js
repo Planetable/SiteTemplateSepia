@@ -62,9 +62,73 @@ const decorateItem = (item) => {
   const pageType = item.dataset.pageType;
   let prefix = getCleanerURL(window.location.href);
   console.log(`Decorating: ${articleId} ${articleSlug} ${titleLength} ${contentLength} ${pageType} ${prefix}`);
+
+  const videoFilename = item.dataset.videoFilename;
+  const audioFilename = item.dataset.audioFilename;
+  
+  if (videoFilename) {
+    // Add a video player
+    let videoBox = document.createElement("div");
+    videoBox.classList.add("video-box");
+    let video = document.createElement("video");
+    video.setAttribute("controls", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("preload", "metadata");
+    let videoSrc = videoFilename;
+    if (pageType == "blog") {
+    } else {
+      videoSrc = `${prefix}${articleId}/${videoFilename}`;
+    }
+    video.setAttribute("src", videoSrc);
+    videoBox.appendChild(video);
+    if (contentLength > 0) {
+      videoBox.style.paddingBottom = "0px";
+    }
+    if (contentLength > 0) {
+      // Insert videoBox before content
+      let content = item.querySelector('.content');
+      if (content) {
+        item.insertBefore(videoBox, content);
+      } else {
+        item.appendChild(videoBox);
+      }
+    } else {
+      item.appendChild(videoBox);
+    }
+  }
+
+  if (audioFilename) {
+    // Add a audio player
+    let audioBox = document.createElement("div");
+    audioBox.classList.add("audio-box");
+    let audio = document.createElement("audio");
+    audio.setAttribute("controls", "");
+    let audioSrc = audioFilename;
+    if (pageType == "blog") {
+    } else {
+      audioSrc = `${prefix}${articleId}/${audioFilename}`;
+    }
+    audio.setAttribute("src", audioSrc);
+    audioBox.appendChild(audio);
+    if (contentLength > 0) {
+      audioBox.style.paddingBottom = "0px";
+    }
+    if (contentLength > 0) {
+      // Insert videoBox before content
+      let content = item.querySelector('.content');
+      if (content) {
+        item.insertBefore(audioBox, content);
+      } else {
+        item.appendChild(audioBox);
+      }
+    } else {
+      item.appendChild(audioBox);
+    }
+  }
   
   // Set item time
   setTime(item);
+  
   // Fix relative paths
   let imgs = item.querySelectorAll('img');
   let itemHasImgs = false;

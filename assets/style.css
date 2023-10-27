@@ -171,7 +171,7 @@ hr {
 
 .item {}
 
-.image-box {
+.image-box, .video-box, .audio-box {
   border-left: 2px solid var(--border-color);
   padding: 30px 0px 30px 30px;
   display: flex;
@@ -188,6 +188,29 @@ hr {
   margin-bottom: 10px;
   box-shadow: var(--shadows);
   border: 1px solid var(--border-color);
+}
+
+.video-box video {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadows);
+  border: 1px solid var(--border-color);
+}
+
+audio::-webkit-media-controls-play-button {
+  color: #000;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #f0f0f0;
+}
+
+.audio-box audio {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadows);
+  border: 1px solid var(--border-color);
+  background-color: #f0f0f0;
 }
 
 .title-box {
