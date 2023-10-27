@@ -3,6 +3,7 @@
      data-article-id="{{ article.id }}"
      data-article-slug="{{ article.slug }}"
      data-article-created="{{ article.created.timeIntervalSince1970 }}"
+     data-attachments="[{% for attachment in article.attachments %}&#34;{{ attachment }}&#34;,{% endfor %}]"
      data-video-filename="{{ article.videoFilename }}"
      data-audio-filename="{{ article.audioFilename }}"
      data-hero-image-filename="{{ article.heroImageFilename }}"

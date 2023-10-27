@@ -63,8 +63,10 @@ const decorateItem = (item) => {
   let prefix = getCleanerURL(window.location.href);
   console.log(`Decorating: ${articleId} ${articleSlug} ${titleLength} ${contentLength} ${pageType} ${prefix}`);
 
+  const attachments = JSON.parse(item.dataset.attachments.replace(/,]/g, "]"));
   const videoFilename = item.dataset.videoFilename;
   const audioFilename = item.dataset.audioFilename;
+  const heroImageFilename = item.dataset.heroImageFilename;
   
   if (videoFilename) {
     // Add a video player
@@ -175,7 +177,6 @@ const decorateItem = (item) => {
   }
   // Append hero image as img-box if no img tag is present
   if (!itemHasImgs) {
-    let heroImageFilename = item.dataset.heroImageFilename;
     if (heroImageFilename) {
       let imageBox = document.createElement("div");
       imageBox.classList.add("image-box");
@@ -194,6 +195,28 @@ const decorateItem = (item) => {
       }
       imageBox.appendChild(heroImg);
       item.appendChild(imageBox);
+    }
+  }
+  // Append attachments
+  if (!itemHasImgs && attachments.length > 0) {
+    let attachmentBox = document.createElement("div");
+    attachmentBox.classList.add("attachment-box");
+    let i = 0;
+    for (let attachment of attachments) {
+      if (attachment != heroImageFilename) {
+        i = i + 1;
+        let attachmentImg = document.createElement("img");
+        if (pageType != "blog") {
+          attachmentImg.setAttribute("src", `${prefix}${articleId}/${attachment}`);
+        } else {
+          attachmentImg.setAttribute("src", attachment);
+        }
+        attachmentBox.appendChild(attachmentImg);
+      }
+    }
+    if (i > 0) {
+      attachmentBox.style.paddingTop = "0px";
+      item.appendChild(attachmentBox);
     }
   }
 }

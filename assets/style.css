@@ -172,11 +172,29 @@ hr {
 
 .item {}
 
-.image-box, .video-box, .audio-box {
+.image-box, .video-box, .audio-box, .attachment-box {
   border-left: 2px solid var(--border-color);
   padding: 30px 0px 30px 30px;
   display: flex;
   margin-left: 3px;
+}
+
+.attachment-box {
+  box-sizing: border-box;
+  max-width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.attachment-box img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadows);
 }
 
 .image-box>img {
