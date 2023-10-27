@@ -1,3 +1,21 @@
+const dismissModal = () => {
+  let modal = document.querySelector('#modal');
+  if (modal) {
+    modal.style.display = "none";
+  }
+}
+
+const showModal = (imageUrl) => {
+  let modal = document.querySelector('#modal');
+  if (modal) {
+    let modalImg = document.querySelector('#modal-img');
+    if (modalImg) {
+      modalImg.src = imageUrl;
+    }
+    modal.style.display = "flex";
+  }
+}
+
 const getCleanerURL = (url) => {
   const parsedUrl = new URL(url);
   let path = parsedUrl.pathname;
@@ -193,6 +211,8 @@ const decorateItem = (item) => {
       if (pageType == "blog") {
         heroImg.setAttribute("style", "max-width: 100%; height: auto; max-height: initial; aspect-ratio: initial; object-fit: cover;");
       }
+      heroImg.style.cursor = "pointer";
+      heroImg.onclick = () => showModal(heroImg.src);
       imageBox.appendChild(heroImg);
       item.appendChild(imageBox);
     }
@@ -211,6 +231,7 @@ const decorateItem = (item) => {
         } else {
           attachmentImg.setAttribute("src", attachment);
         }
+        attachmentImg.onclick = () => showModal(attachmentImg.src);
         attachmentBox.appendChild(attachmentImg);
       }
     }
