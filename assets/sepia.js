@@ -97,12 +97,15 @@ const decorateItem = (item) => {
     let video = document.createElement("video");
     video.setAttribute("controls", "");
     video.setAttribute("playsinline", "");
-    video.setAttribute("preload", "metadata");
+    video.setAttribute("preload", "auto");
     let videoSrc = videoFilename;
+    let videoPoster = "_videoThumbnail.png"
     if (pageType == "blog") {
     } else {
       videoSrc = `${prefix}${articleId}/${videoFilename}`;
+      videoPoster = `${prefix}${articleId}/_videoThumbnail.png`;
     }
+    video.setAttribute("poster", videoPoster);
     video.setAttribute("src", videoSrc);
     videoBox.appendChild(video);
     if (contentLength > 0) {
