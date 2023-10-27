@@ -8,8 +8,10 @@
   --border-color: rgba(0, 0, 0, 0.05);
   --link-color: orangered;
   --icon-social-filter: invert(35%) sepia(78%) saturate(3100%) hue-rotate(359deg) brightness(98%) contrast(111%);
+  --icon-secondary-filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(129deg) brightness(86%) contrast(88%);
   --cell-background-color: #fff;
   --code-background-color: #f9f9f9;
+  --secondary-color: #999;
 }
 
 body {
@@ -28,6 +30,7 @@ a:link,
 a:visited {
   color: #333;
   text-decoration: none;
+  line-break: loose;
 }
 
 a:hover {
@@ -81,6 +84,23 @@ a.item-link:hover {
   flex: 1;
   font-size: 20px;
   margin-left: 10px;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: bottom;
+  filter: var(--icon-secondary-filter);
+}
+
+.social-icon:hover {
+  filter: var(--icon-social-filter);
 }
 
 #breadcrumb {
@@ -226,6 +246,7 @@ hr {
   padding-top: 20px;
   padding-bottom: 20px;
   width: 200px;
+  min-width: 200px;
 }
 
 .nav-item {
@@ -244,10 +265,17 @@ hr {
   padding: 5px 10px 5px 10px;
   border-radius: var(--box-border-radius);
   display: inline-block;
+  transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.nav-link.current {
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadows);
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadows);
 }
 
 /* START: archive */
@@ -423,6 +451,10 @@ hr {
   white-space: pre-wrap;
 }
 
+.content code {
+  line-break: anywhere;
+}
+
 .content figure {
   margin-inline-start: 0px;
   margin-inline-end: 10px;
@@ -434,6 +466,44 @@ hr {
 }
 
 /* END: Markdown tags */
+
+/* START: pages */
+
+.pages-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pages-info {
+  flex: 1;
+  text-align: center;
+  vertical-align: middle;
+  color: var(--secondary-color);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+a.page:link, a.page:visited {
+  color: var(--secondary-color);
+  padding: 5px 15px 5px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 30px;
+  border: 1px solid var(--secondary-color);
+}
+
+a.page:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.page-placeholder {
+  width: 34px;
+}
+
+/* END: pages */
 
 /* START: table */
 

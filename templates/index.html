@@ -17,4 +17,17 @@ for (let i = 0; i < items.length; i++) {
   {% include "modules/item.html" %}
   {% endfor %}
 </div>
+<div class="pages-container">
+  {% if previous_page %}
+  <a href="./{{ previous_page }}" class="page">Prev</a>
+  {% else %}
+  <span class="page-placeholder">&nbsp;</span>
+  {% endif %}
+  <div class="pages-info">{% if total_pages > 1 %}Page {{ current_page }} of {{ total_pages }}{% else %}&nbsp;{% endif %}</div>
+  {% if next_page %}
+  <a href="./{{ next_page }}" class="page">Next</a>
+  {% else %}
+  <span class="page-placeholder">&nbsp;</span>
+  {% endif %}
+</div>
 {% endblock %}

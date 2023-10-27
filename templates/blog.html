@@ -24,6 +24,10 @@ const items = document.querySelectorAll('.item');
 const item = items[0];
 if (item) {
   decorateItem(item);
+  // set time every 60 seconds
+  setInterval(() => {
+    setTime(item);
+  }, 60000);
 }
 {% endblock %}
 {% block main %}

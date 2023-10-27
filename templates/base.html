@@ -44,21 +44,21 @@
       <div class="nav">
         <div class="nav-item">
           <img class="nav-icon" />
-          <a href="{{ assets_prefix }}index.html" class="nav-link">Home</a>
+          <a href="{{ assets_prefix }}index.html" class="nav-link{% if current_item_type == "index" %} current{% endif %}">Home</a>
         </div>
         {% for item in site_navigation %}
         <div class="nav-item">
           <img class="nav-icon" />
-          <a href="{% if item.externalLink.count > 0 %}{{ item.externalLink }}{% else %}{{ assets_prefix }}{% if item.slug.count > 0 %}{{ item.slug }}{% else %}{{ item.id }}{% endif %}/{% endif %}" class="nav-link"{% if item.externalLink.count > 0 %} target="_blank"{% endif %}>{{ item.title|escape }}</a>
+          <a href="{% if item.externalLink.count > 0 %}{{ item.externalLink }}{% else %}{{ assets_prefix }}{% if item.slug.count > 0 %}{{ item.slug }}{% else %}{{ item.id }}{% endif %}/{% endif %}" class="nav-link{% if item.id == article_id %} current{% endif %}"{% if item.externalLink.count > 0 %} target="_blank"{% endif %}>{{ item.title|escape }}</a>
         </div>
         {% endfor %}
         <div class="nav-item">
           <img class="nav-icon" />
-          <a href="{{ assets_prefix }}tags.html" class="nav-link">Tags</a>
+          <a href="{{ assets_prefix }}tags.html" class="nav-link{% if current_item_type == "tags" %} current{% endif %}">Tags</a>
         </div>
         <div class="nav-item">
           <img class="nav-icon" />
-          <a href="{{ assets_prefix }}archive.html" class="nav-link">Archive</a>
+          <a href="{{ assets_prefix }}archive.html" class="nav-link{% if current_item_type == "archive" %} current{% endif %}">Archive</a>
         </div>
       </div>
       {% endblock %}

@@ -10,27 +10,19 @@ const getCleanerURL = (url) => {
   return `${parsedUrl.protocol}//${parsedUrl.host}${path}`;
 }
 
-const decorateItem = (item) => {
+const setTime = (item) => {
   const itemLink = item.dataset.itemLink;
-  const articleId = item.dataset.articleId;
   const articleCreated = Math.round(item.dataset.articleCreated * 1000);
-  const articleSlug = item.dataset.articleSlug;
-  const titleLength = item.dataset.titleLength;
-  const contentLength = item.dataset.contentLength;
   const pageType = item.dataset.pageType;
-  let prefix = getCleanerURL(window.location.href);
-  console.log(`Decorating: ${articleId} ${articleSlug} ${titleLength} ${contentLength} ${pageType} ${prefix}`);
+  
   // Set item time
   let time = item.querySelector('.time');
   if (time) {
     const dateOptions = { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' };
     let d = new Date(articleCreated);
-    console.log(`d=${d}`);
     // if d is today, render it as relative time
     let now = new Date();
-    console.log(`now=${now}`);
     let diff = (Math.floor(now.valueOf() / 1000) - Math.floor(d.valueOf() / 1000));
-    console.log(`diff=${diff}`);
     let s = '';
     if (diff < 86400) {
       const rtf = new Intl.RelativeTimeFormat(undefined, { style: 'short' });
@@ -60,6 +52,19 @@ const decorateItem = (item) => {
       time.appendChild(timeLink);
     }
   }
+}
+
+const decorateItem = (item) => {
+  const articleId = item.dataset.articleId;
+  const articleSlug = item.dataset.articleSlug;
+  const titleLength = item.dataset.titleLength;
+  const contentLength = item.dataset.contentLength;
+  const pageType = item.dataset.pageType;
+  let prefix = getCleanerURL(window.location.href);
+  console.log(`Decorating: ${articleId} ${articleSlug} ${titleLength} ${contentLength} ${pageType} ${prefix}`);
+  
+  // Set item time
+  setTime(item);
   // Fix relative paths
   let imgs = item.querySelectorAll('img');
   let itemHasImgs = false;

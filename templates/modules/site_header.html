@@ -1,6 +1,31 @@
 <div id="header">
   <a href="{{ assets_prefix }}index.html"><img src="{% if has_avatar %}{{ assets_prefix }}avatar.png{% else %}https://zora.co/api/avatar/{{ planet_ipns }}{% endif %}" class="header-avatar" border="0" /></a>
   <div class="header-title"><a href="{{ assets_prefix }}index.html">{{ planet.name|escape }}</a></div>
+  <div class="header-icons">
+    <a href="{{ assets_prefix }}rss.xml" target="_blank"><img src="{{ assets_prefix }}assets/rss.svg" alt="RSS" class="social-icon" width="1em"></a>
+    {% if has_podcast %}
+    <a href="{{ assets_prefix }}podcast.xml" target="_blank"><img src="{{ assets_prefix }}assets/podcast.svg" alt="Podcast" class="social-icon" width="1em"></a>
+    {% endif %}
+    {% if planet.twitterUsername.count > 0 %}
+    <a href="https://twitter.com/{{ planet.twitterUsername|escapejs }}" target="_blank"><img src="{{ assets_prefix }}assets/twitter.svg" alt="twitter.com/{{ planet.twitterUsername|escapejs }}" class="social-icon" width="1em"></a>
+    {% endif %}
+    {% if planet.githubUsername.count > 0 %}
+    <a href="https://github.com/{{ planet.githubUsername|escapejs }}" target="_blank"><img src="{{ assets_prefix }}assets/github.svg" alt="github.com/{{ planet.githubUsername|escapejs }}" class="social-icon" width="1em"></a>
+    {% endif %}
+    {% if planet.telegramUsername.count > 0 %}
+    <a href="https://t.me/{{ planet.telegramUsername|escapejs }}" target="_blank"><img src="{{ assets_prefix }}assets/telegram.svg" alt="t.me/{{ planet.telegramUsername|escapejs }}" class="social-icon" width="1em"></a>
+    {% endif %}
+    {% if planet.juiceboxEnabled %}
+    {% if planet.juiceboxProjectID != nil %}
+      <a href="https://juicebox.money/v2/p/{{ planet.juiceboxProjectID }}" target="_blank"><img src="{{ assets_prefix }}assets/juicebox.svg" alt="Juicebox Project ID {{ planet.juiceboxProjectID }}" class="social-icon" width="1em"></a>
+    {% else %}
+      {% if planet.juiceboxProjectIDGoerli != nil %}
+      <a href="https://goerli.juicebox.money/v2/p/{{ planet.juiceboxProjectIDGoerli }}" target="_blank"><img src="{{ assets_prefix }}assets/juicebox.svg" alt="Goerli Juicebox Project ID {{ planet.juiceboxProjectIDGoerli }}" class="social-icon" width="1em"></a>
+      {% endif %}
+    {% endif %}
+    {% endif %}
+
+  </div>
 </div>
 {% if page_description_html.count > 0 %}
 <div class="text-box" id="site-intro">
