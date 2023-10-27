@@ -1,3 +1,7 @@
+String.prototype.isPicture = function() {
+  return this.endsWith(".jpg") || this.endsWith(".jpeg") || this.endsWith(".png") || this.endsWith(".gif");
+};
+
 const dismissModal = () => {
   let modal = document.querySelector('#modal');
   if (modal) {
@@ -223,7 +227,7 @@ const decorateItem = (item) => {
     attachmentBox.classList.add("attachment-box");
     let i = 0;
     for (let attachment of attachments) {
-      if (attachment != heroImageFilename) {
+      if (attachment != heroImageFilename && attachment.isPicture()) {
         i = i + 1;
         let attachmentImg = document.createElement("img");
         if (pageType != "blog") {
