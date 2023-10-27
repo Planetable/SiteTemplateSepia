@@ -23,11 +23,30 @@ const decorateItem = (item) => {
   // Set item time
   let time = item.querySelector('.time');
   if (time) {
-    const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+    const dateOptions = { weekday: undefined, year: 'numeric', month: 'short', day: 'numeric' };
     let d = new Date(articleCreated);
-    let ds = d.toLocaleDateString(undefined, dateOptions);
-    let ts = d.toLocaleTimeString(undefined, {hour: '2-digit', minute:'2-digit'});
-    let s = ds + ' - ' + ts;
+    console.log(`d=${d}`);
+    // if d is today, render it as relative time
+    let now = new Date();
+    console.log(`now=${now}`);
+    let diff = (Math.floor(now.valueOf() / 1000) - Math.floor(d.valueOf() / 1000));
+    console.log(`diff=${diff}`);
+    let s = '';
+    if (diff < 86400) {
+      const rtf = new Intl.RelativeTimeFormat(undefined, { style: 'short' });
+      value = -1 * diff;
+      if (diff < 60) {
+        s = rtf.format(Math.floor(value), 'second');
+      } else if (diff < 3600) {
+        s = rtf.format(Math.floor(value / 60), 'minute');
+      } else {
+        s = rtf.format(Math.floor(value / 3600), 'hour');
+      }
+    } else {
+      let ds = d.toLocaleDateString(undefined, dateOptions);
+      let ts = d.toLocaleTimeString(undefined, {hour: '2-digit', minute:'2-digit'});
+      s = ts + ' · ' + ds;  
+    }
     if (pageType == "blog") {
       time.textContent = s;
     } else {

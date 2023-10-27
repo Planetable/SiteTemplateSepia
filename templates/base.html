@@ -8,7 +8,10 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="apple-touch-icon" href="./assets/img/icon.png">
+  {% if has_avatar %}
+  <link rel="apple-touch-icon" href="{{ assets_prefix }}avatar.png" />
+  <link rel="shortcut icon" href="{{ assets_prefix }}favicon.ico" />
+  {% endif %}
 
   <link rel="stylesheet" href="{{ assets_prefix }}assets/normalize.css">
   <link rel="stylesheet" href="{{ assets_prefix }}assets/style.css?sha256={{ style_css_sha256 }}">
