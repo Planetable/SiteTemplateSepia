@@ -125,6 +125,14 @@ const decorateItem = (item) => {
       item.appendChild(audioBox);
     }
   }
+
+  // Adjust title size
+  let titleBox = item.querySelector('.title-box');
+  if (titleLength > 40) {
+    titleBox.style.fontSize = "18px";
+    titleBox.style.fontWeight = "500";
+    titleBox.style.lineHeight = "1.5";
+  }
   
   // Set item time
   setTime(item);

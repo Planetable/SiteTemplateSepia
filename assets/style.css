@@ -84,6 +84,7 @@ a.item-link:hover {
   flex: 1;
   font-size: 20px;
   margin-left: 10px;
+  padding-right: 10px;
 }
 
 .header-icons {
@@ -216,9 +217,9 @@ audio::-webkit-media-controls-panel {
 .title-box {
   border-left: 2px solid var(--border-color);
   padding: 30px 0px 0px 30px;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 800;
   margin-left: 3px;
 }
 
@@ -445,11 +446,35 @@ audio::-webkit-media-controls-panel {
 
 /* START: Markdown tags */
 
-.content ul:first-child, .content ol:first-child, .content p:first-child {
+.content h1 {
+  font-size: 24px;
+}
+
+.content h2 {
+  font-size: 20px;
+}
+
+.content h3 {
+  font-size: 16px;
+}
+
+.content h4 {
+  font-size: 14px;
+}
+
+.content h5 {
+  font-size: 12px;
+}
+
+.content h6 {
+  font-size: 10px;
+}
+
+.content ul:first-child, .content ol:first-child, .content p:first-child, .content h1:first-child, .content h2:first-child, .content h3:first-child, .content h4:first-child, .content h5:first-child, .content h6:first-child {
   margin-top: 0px;
 }
 
-.content ul:last-child, .content ol:last-child, .content p:last-child {
+.content ul:last-child, .content ol:last-child, .content p:last-child, .content h1:last-child, .content h2:last-child, .content h3:last-child, .content h4:last-child, .content h5:last-child, .content h6:last-child {
   margin-bottom: 0px;
 }
 
