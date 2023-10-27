@@ -402,6 +402,10 @@ hr {
   margin-bottom: 0px;
 }
 
+.content li {
+  line-break: anywhere;
+}
+
 .content img {
   max-width: 100%;
   max-height: 80vh;
@@ -529,8 +533,9 @@ li:has(input[type="checkbox"]:checked:disabled)::before {
 
 @media screen and (max-width: 600px) {
   #container {
-    display: block;
+    display: flex;
     width: 100%;
+    flex-direction: column-reverse;
   }
 
   #main-container {
@@ -539,9 +544,22 @@ li:has(input[type="checkbox"]:checked:disabled)::before {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 10px;
   }
 
   #aside-container {
     width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+  }
+
+  #aside-container .nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #aside-container .nav-item {
+    font-size: 14px;
+    line-height: 1;
   }
 }
