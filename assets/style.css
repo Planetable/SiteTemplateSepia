@@ -728,6 +728,7 @@ li:has(input[type="checkbox"]:checked:disabled)::before {
   #aside-container .nav {
     display: flex;
     flex-wrap: wrap;
+    gap: 2px;
   }
 
   #aside-container .nav-item {

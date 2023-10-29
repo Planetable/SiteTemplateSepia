@@ -17,6 +17,7 @@ for (let i = 0; i < items.length; i++) {
   {% include "modules/item.html" %}
   {% endfor %}
 </div>
+{% if total_pages > 1 %}
 <div class="pages-container">
   {% if previous_page %}
   <a href="./{{ previous_page }}" class="page">Prev</a>
@@ -30,4 +31,5 @@ for (let i = 0; i < items.length; i++) {
   <span class="page-placeholder">&nbsp;</span>
   {% endif %}
 </div>
+{% endif %}
 {% endblock %}

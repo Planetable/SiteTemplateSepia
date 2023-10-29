@@ -55,10 +55,12 @@
           <a href="{% if item.externalLink.count > 0 %}{{ item.externalLink }}{% else %}{{ assets_prefix }}{% if item.slug.count > 0 %}{{ item.slug }}{% else %}{{ item.id }}{% endif %}/{% endif %}" class="nav-link{% if item.id == article_id %} current{% endif %}"{% if item.externalLink.count > 0 %} target="_blank"{% endif %}>{{ item.title|escape }}</a>
         </div>
         {% endfor %}
+        {% if planet.tags.count > 0 %}
         <div class="nav-item">
           <img class="nav-icon" />
           <a href="{{ assets_prefix }}tags.html" class="nav-link{% if current_item_type == "tags" %} current{% endif %}">Tags</a>
         </div>
+        {% endif %}
         <div class="nav-item">
           <img class="nav-icon" />
           <a href="{{ assets_prefix }}archive.html" class="nav-link{% if current_item_type == "archive" %} current{% endif %}">Archive</a>
