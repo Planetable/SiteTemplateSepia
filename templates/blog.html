@@ -32,7 +32,7 @@ if (item) {
 {% endblock %}
 {% block main %}
 <div id="breadcrumb">
-    <img src="{% if has_avatar %}{{ assets_prefix }}avatar.png{% else %}https://zora.co/api/avatar/{{ planet_ipns }}{% endif %}" class="breadcrumb-avatar" />
+    <img src="{% if has_avatar %}{{ assets_prefix }}avatar.png{% else %}{{ assets_prefix }}assets/void.png{% endif %}" class="breadcrumb-avatar" />
     <div class="breadcrumb-title"><a href="{{ assets_prefix }}index.html">{{ planet.name|escape }}</a></div>
 </div>
 {% include "modules/item.html" %}
