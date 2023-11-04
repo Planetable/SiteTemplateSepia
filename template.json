@@ -3,10 +3,10 @@
   "description": "A sepia template designed for microblogging",
   "author": "Planetable Team",
   "authorWebsite": "https://planetable.xyz",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "idealItemsPerPage": 20,
   "generateIndexPagination": true,
   "generateTagPages": true,
   "generateArchive": true,
-  "buildNumber": 26
+  "buildNumber": 27
 }
