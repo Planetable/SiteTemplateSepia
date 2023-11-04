@@ -269,6 +269,21 @@ audio::-webkit-media-controls-panel {
   padding-bottom: 30px;
 }
 
+.tag-box {
+  border-left: 2px solid var(--border-color);
+  padding: 0px 0px 30px 30px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-left: 3px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tag-box:last-child {
+  padding-bottom: 20px;
+}
+
 .text-box {
   border-left: 2px solid var(--border-color);
   padding: 30px 0px 30px 30px;
@@ -402,6 +417,26 @@ audio::-webkit-media-controls-panel {
 /* END: archive */
 
 /* START: tag */
+
+.tag-icon {
+  width: 12px;
+  height: 12px;
+  opacity: 0.25;
+}
+
+.tag:link, .tag:visited {
+  color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 2px 10px 2px 10px;
+  text-decoration: none;
+}
+
+.tag:hover {
+  color: var(--link-color);
+  border-color: var(--link-color);
+  text-decoration: none;
+}
 
 .tag-container {
   margin: 0px auto 40px auto;
