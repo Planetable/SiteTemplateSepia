@@ -36,7 +36,7 @@
   {% endif %}
   {% if article.tags.count > 0 %}
   <div class="tag-box">
-    <img src="{{ assets_prefix }}assets/tag{% if article.tags.count > 1 %}s{% endif %}.png" class="tag-icon">
+    <div class="tag-icon"></div>
     {% for tag in article.tags %}
     <a href="{{ assets_prefix }}{{ tag }}.html" class="tag">{{ article.tags[tag]|escape }}</a>
     {% endfor %}

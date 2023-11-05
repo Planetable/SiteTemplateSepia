@@ -419,9 +419,13 @@ audio::-webkit-media-controls-panel {
 /* START: tag */
 
 .tag-icon {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
+  background-size: 16px 16px;
   opacity: 0.25;
+  background-image: url("tags.png");
+  background-repeat: no-repeat;
+  display: inline-block;
 }
 
 .tag:link, .tag:visited {
