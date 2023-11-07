@@ -800,4 +800,10 @@ li:has(input[type="checkbox"]:checked:disabled)::before {
   .archive-list-header {
     padding-left: 0px;
   }
+
+  #site-intro {
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
