@@ -51,12 +51,22 @@ body {
 
 a:link,
 a:visited {
-  color: #333;
+  color: #778087;
   text-decoration: none;
   line-break: loose;
 }
 
 a:hover {
+  color: #4d5256;
+  text-decoration: underline;
+}
+
+a.site-title:link, a.site-title:visited {
+  color: #333;
+  text-decoration: none;
+}
+
+a.site-title:hover {
   color: #000;
   text-decoration: underline;
 }
