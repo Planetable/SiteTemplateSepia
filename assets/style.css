@@ -185,7 +185,7 @@ hr {
 .section-title {
   font-size: 16px;
   font-weight: 600;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 20px 0px 20px;
 }
 
 .items {
@@ -349,12 +349,12 @@ audio::-webkit-media-controls-panel {
 }
 
 .nav-link.current {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.75);
   box-shadow: var(--shadows);
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.65);
   box-shadow: var(--shadows);
 }
 
@@ -384,6 +384,7 @@ audio::-webkit-media-controls-panel {
   column-rule: 1px solid var(--border-color);
   column-gap: 40px;
   line-height: 1.2;
+  margin-top: 20px;
 }
 
 .archive-list-item {
@@ -489,6 +490,7 @@ audio::-webkit-media-controls-panel {
   column-rule: 1px solid var(--border-color);
   column-gap: 40px;
   line-height: 2;
+  margin-top: 20px;
 }
 
 .tag-cloud-item {
@@ -773,5 +775,29 @@ li:has(input[type="checkbox"]:checked:disabled)::before {
   #aside-container .nav-item {
     font-size: 14px;
     line-height: 1;
+  }
+
+  .section-title {
+    padding: 10px 0px 0px 0px;
+  }
+
+  .tag-cloud {
+    margin-top: 20px;
+  }
+
+  .tag-cloud-item {
+    padding-left: 0px;
+  }
+
+  .archive-list {
+    margin-top: 20px;
+  }
+
+  .archive-list-item {
+    padding-left: 0px;
+  }
+
+  .archive-list-header {
+    padding-left: 0px;
   }
 }
