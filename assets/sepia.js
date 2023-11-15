@@ -1,5 +1,5 @@
 String.prototype.isPicture = function() {
-  return this.endsWith(".jpg") || this.endsWith(".jpeg") || this.endsWith(".png") || this.endsWith(".gif");
+  return this.endsWith(".jpg") || this.endsWith(".jpeg") || this.endsWith(".png") || this.endsWith(".gif") || this.endsWith(".webp");
 };
 
 const dismissModal = () => {
