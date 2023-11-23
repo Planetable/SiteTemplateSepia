@@ -588,7 +588,13 @@ audio::-webkit-media-controls-panel {
 }
 
 .content pre {
+  font-size: 0.9em;
   white-space: pre-wrap;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadows);
+  background-color: #fffff9;
 }
 
 .content code {
