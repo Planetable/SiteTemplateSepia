@@ -59,7 +59,8 @@ const setTime = (item) => {
     } else {
       let ds = d.toLocaleDateString(undefined, dateOptions);
       let ts = d.toLocaleTimeString(undefined, {hour: '2-digit', minute:'2-digit'});
-      s = ts + ' · ' + ds;  
+      let ws = d.toLocaleDateString(undefined, {weekday: 'short'});
+      s = ts + ' · ' + ds + ' · ' + ws;  
     }
     if (pageType == "blog") {
       time.textContent = s;
