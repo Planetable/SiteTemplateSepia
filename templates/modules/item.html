@@ -17,7 +17,7 @@
   </div>
   <!-- box for HTML content -->
   {% if article.title.count > 0 %}
-  <div class="title-box"{% if article.tags.count > 0 %} style="padding-bottom: 20px"{% endif %}>
+  <div class="title-box"{% if article.content.count == 0, article.tags.count > 0 %} style="padding-bottom: 20px"{% endif %}>
     {{ article.title|escape }}
   </div>
   {% endif %}
