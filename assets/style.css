@@ -692,6 +692,7 @@ a.page:hover {
   border: 1px solid var(--border-color);
   margin: 0;
   padding: 6px 12px;
+  line-break: anywhere;
 }
 
 .content table tr th :first-child,
