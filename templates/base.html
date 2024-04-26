@@ -30,6 +30,21 @@
     {% endblock %}
     });
   </script>
+  <style>
+  :root {
+    {% if user_settings['backgroundColor'] %}
+    --background-color: {{ user_settings['backgroundColor'] }};
+    {% endif %}
+
+    {% if user_settings['foregroundColor'] %}
+    --foreground-color: {{ user_settings['foregroundColor'] }};
+    {% endif %}
+
+    {% if user_settings['highlightColor'] %}
+    --highlight-color: {{ user_settings['highlightColor'] }};
+    {% endif %}
+  }
+  </style>
 </head>
 
 <body>

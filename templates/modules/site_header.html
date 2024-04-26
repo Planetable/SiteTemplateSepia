@@ -2,7 +2,7 @@
   <a href="{{ assets_prefix }}index.html"><img src="{% if has_avatar %}{{ assets_prefix }}avatar.png{% else %}{{ assets_prefix }}assets/void.png{% endif %}" class="header-avatar" border="0" /></a>
   <div class="header-title"><a href="{{ assets_prefix }}index.html" class="site-title">{{ planet.name|escape }}</a></div>
   <div class="header-icons">
-    <a href="{{ assets_prefix }}rss.xml" target="_blank"><img src="{{ assets_prefix }}assets/rss.svg" alt="RSS" class="social-icon" width="1em"></a>
+    <a href="{{ assets_prefix }}rss.xml" class="social-link" target="_blank"><img src="{{ assets_prefix }}assets/rss.svg" alt="RSS" class="social-icon" width="1em"></a>
     {% if has_podcast %}
     <a href="{{ assets_prefix }}podcast.xml" target="_blank"><img src="{{ assets_prefix }}assets/podcast.svg" alt="Podcast" class="social-icon" width="1em"></a>
     {% endif %}

@@ -3,10 +3,30 @@
   "description": "A sepia template designed for microblogging",
   "author": "Planetable Team",
   "authorWebsite": "https://planetable.xyz",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "idealItemsPerPage": 20,
   "generateIndexPagination": true,
   "generateTagPages": true,
   "generateArchive": true,
-  "buildNumber": 36
+  "buildNumber": 39,
+  "settings": {
+    "highlightColor": {
+      "name": "Highlight Color",
+      "type": "string",
+      "defaultValue": "#FF4500",
+      "description": "Highlight color, default value: #FF4500 (orangered)"
+    },
+    "backgroundColor": {
+      "name": "Background Color",
+      "type": "string",
+      "defaultValue": "#F4F1EC",
+      "description": "Background color, default value: #F4F1EC (yellowish white)"
+    },
+    "foregroundColor": {
+      "name": "Foreground Color",
+      "type": "string",
+      "defaultValue": "#000000",
+      "description": "Foreground color, default value: #000000 (black)"
+    }
+  }
 }

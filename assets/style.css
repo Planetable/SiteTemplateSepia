@@ -1,4 +1,8 @@
 :root {
+  /* We need a method in Swift to convert the highlight color to a CSS filter for SVG */
+  --background-color: #F4F1EC;
+  --foreground-color: #000000;
+  --highlight-color: orangered;
   --box-border-radius: 3px;
   --media-border-radius: 8px;
   --dot-size: 8px;
@@ -8,8 +12,8 @@
              0 8px 16px rgba(0,0,0,0.02);
   --box-margin: 10px;
   --border-color: rgba(0, 0, 0, 0.05);
-  --link-color: orangered;
-  --icon-social-filter: invert(35%) sepia(78%) saturate(3100%) hue-rotate(359deg) brightness(98%) contrast(111%);
+  --link-color: var(--highlight-color);
+  --icon-hover-filter: invert(51%) sepia(0%) saturate(0%) hue-rotate(23deg) brightness(90%) contrast(90%);
   --icon-secondary-filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(129deg) brightness(86%) contrast(88%);
   --cell-background-color: #fff;
   --code-background-color: #f9f9f9;
@@ -17,7 +21,8 @@
 }
 
 body {
-  background-color: #f4f1ec;
+  background-color: var(--background-color);
+  color: --var(--foreground-color);
   font-family: "Helvetica Neue", "Luxi Sans", "Segoe UI", "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 }
 
@@ -136,7 +141,7 @@ a.item-link:hover {
 }
 
 .social-icon:hover {
-  filter: var(--icon-social-filter);
+  filter: var(--icon-hover-filter);
 }
 
 #breadcrumb {
@@ -732,7 +737,7 @@ li:has(input[type="checkbox"]:not(:checked):disabled)::before {
   width: 1.25em;
   height: 1em;
   background-size: 1em 1em;
-  filter: var(--icon-social-filter);
+  filter: var(--icon-hover-filter);
   pointer-events: all;
 }
 
