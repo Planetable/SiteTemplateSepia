@@ -15,6 +15,9 @@
     {% if planet.telegramUsername.count > 0 %}
     <a href="https://t.me/{{ planet.telegramUsername|escapejs }}" target="_blank"><img src="{{ assets_prefix }}assets/telegram.svg" alt="t.me/{{ planet.telegramUsername|escapejs }}" class="social-icon" width="1em"></a>
     {% endif %}
+    {% if planet.discordLink.count > 0 %}
+    <a href="{{ planet.discordLink|escapejs }}" target="_blank"><img src="{{ assets_prefix }}assets/discord.svg" alt="Discord Invite" class="social-icon" width="1em"></a>
+    {% endif %}
     {% if planet.juiceboxEnabled %}
     {% if planet.juiceboxProjectID != nil %}
       <a href="https://juicebox.money/v2/p/{{ planet.juiceboxProjectID }}" target="_blank"><img src="{{ assets_prefix }}assets/juicebox.svg" alt="Juicebox Project ID {{ planet.juiceboxProjectID }}" class="social-icon" width="1em"></a>
