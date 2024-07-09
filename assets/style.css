@@ -241,8 +241,7 @@ hr {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 50vh;
-  object-fit: cover;
+  max-height: initial;
   border-radius: var(--media-border-radius);
   margin-bottom: 10px;
   box-shadow: var(--shadows);
