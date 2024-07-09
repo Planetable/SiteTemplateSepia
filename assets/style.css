@@ -588,8 +588,7 @@ audio::-webkit-media-controls-panel {
 
 .content img {
   max-width: 100%;
-  max-height: 80vh;
-  object-fit: cover;
+  max-height: initial;
   border-radius: var(--media-border-radius);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadows)
