@@ -203,7 +203,7 @@ const decorateItem = (item) => {
   }
   // Append hero image as img-box if no img tag is present
   if (!itemHasImgs) {
-    if (heroImageFilename) {
+    if (heroImageFilename && heroImageFilename != "_videoThumbnail.png") {
       let imageBox = document.createElement("div");
       imageBox.classList.add("image-box");
       if (contentLength > 0) {
