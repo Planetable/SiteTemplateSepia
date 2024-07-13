@@ -45,6 +45,10 @@
     {% endif %}
   }
   </style>
+  {% if planet.plausibleEnabled %}
+  <script defer data-domain="{{ planet.plausibleDomain }}" src="https://{{ planet.plausibleAPIServer }}/js/plausible.local.js"></script>
+  {% endif %}
+  {% if custom_code_head.count > 0 %}{{ custom_code_head }}{% endif %}
 </head>
 
 <body>
