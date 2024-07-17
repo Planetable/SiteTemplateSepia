@@ -66,6 +66,7 @@ a:visited {
 a:hover {
   color: #4d5256;
   text-decoration: underline;
+  text-underline-offset: .2rem;
 }
 
 a.site-title:link, a.site-title:visited {
