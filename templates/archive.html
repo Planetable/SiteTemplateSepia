@@ -9,7 +9,7 @@
   <div class="archive-list-header">{{ item|escape }}</div>
   {% for article in archive[item] %}
   <div class="archive-list-item">
-    <a href="{{ assets_prefix }}{{ article.id }}/">{% if article.title.count > 0 %}{{ article.title|escape }}{% else %}{{ article.content.prefix(40)|escape }}{% endif %}</a>
+    <a href="{{ assets_prefix }}{{ article.id }}/">{% if article.title.count > 0 %}{{ article.title|escape }}{% else %}<small>{{ article.created|formatDate }}</small>{% endif %}</a>
   </div>
   {% endfor %}
   {% endfor %}
