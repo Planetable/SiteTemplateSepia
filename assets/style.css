@@ -340,10 +340,15 @@ audio::-webkit-media-controls-panel {
 }
 
 #aside-container {
-  padding-top: 20px;
   padding-bottom: 20px;
   width: 200px;
   min-width: 200px;
+}
+
+#aside-container .nav {
+  padding-top: 20px;
+  position: sticky;
+  top: 0;
 }
 
 .nav-item {
@@ -792,6 +797,10 @@ li:has(input[type="checkbox"]:checked:disabled)::before {
     width: 100%;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
+    background-color: var(--background-color);
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 4px 16px -16px rgba(0, 0, 0, 0.5);
   }
 
   #aside-container .nav {
