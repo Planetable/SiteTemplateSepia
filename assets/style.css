@@ -261,7 +261,7 @@ audio::-webkit-media-controls-play-button {
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: #fffff9;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .audio-box audio {
@@ -269,7 +269,7 @@ audio::-webkit-media-controls-panel {
   border-radius: var(--media-border-radius);
   box-shadow: var(--shadows);
   border: 1px solid var(--border-color);
-  background-color: #fffff9;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .title-box {
@@ -605,7 +605,7 @@ audio::-webkit-media-controls-panel {
   border-radius: var(--media-border-radius);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadows);
-  background-color: #fffff9;
+  background-color: rgba(255, 255, 240, 0.2);
 }
 
 .content code {
