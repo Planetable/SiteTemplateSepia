@@ -240,7 +240,7 @@ hr {
 
 .image-box>img {
   display: block;
-  width: 100%;
+  width: calc(100% - 1px);
   height: auto;
   max-height: initial;
   border-radius: var(--media-border-radius);
@@ -628,6 +628,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .content>iframe {
+  max-width: calc(100% - 1px);
   border-radius: var(--media-border-radius);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadows);
