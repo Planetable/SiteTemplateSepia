@@ -35,7 +35,7 @@
   </div>
   {% endif %}
   {% if article.tags.count > 0 %}
-  <div class="tag-box">
+  <div class="tag-box"{% if article.content.count == 0 %} style="padding-top: 30px;"{% endif %}>
     <div class="tag-icon"></div>
     {% for tag in article.tags %}
     <a href="{{ assets_prefix }}{{ tag }}.html" class="tag">{{ article.tags[tag]|escape }}</a>

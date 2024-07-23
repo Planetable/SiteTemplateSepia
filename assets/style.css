@@ -592,7 +592,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .content img {
-  max-width: 100%;
+  max-width: calc(100% - 1px);
   max-height: initial;
   border-radius: var(--media-border-radius);
   border: 1px solid var(--border-color);
