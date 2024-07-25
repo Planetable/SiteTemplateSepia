@@ -16,7 +16,11 @@
   <link rel="stylesheet" href="{{ assets_prefix }}assets/normalize.css">
   <link rel="stylesheet" href="{{ assets_prefix }}assets/style.css?sha256={{ style_css_sha256 }}">
 
+  {% if user_settings['backgroundColor'] %}
+  <meta name="theme-color" content="{{ user_settings['backgroundColor'] }}">
+  {% else %}
   <meta name="theme-color" content="#f4f1ec">
+  {% endif %}
   <script src="{{ assets_prefix }}assets/sepia.js" type="text/javascript"></script>
   <script type="text/javascript">
     let userAgentRegex = /Planet\/\S*/;
