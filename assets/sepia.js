@@ -36,6 +36,7 @@ const setTime = (item) => {
   const itemLink = item.dataset.itemLink;
   const articleCreated = Math.round(item.dataset.articleCreated * 1000);
   const pageType = item.dataset.pageType;
+  const pinned = item.dataset.pinned;
   
   // Set item time
   let time = item.querySelector('.time');
@@ -61,6 +62,9 @@ const setTime = (item) => {
       let ts = d.toLocaleTimeString(undefined, {hour: '2-digit', minute:'2-digit'});
       let ws = d.toLocaleDateString(undefined, {weekday: 'short'});
       s = ts + ' · ' + ds + ' · ' + ws;  
+    }
+    if (pinned) {
+      s = '📌' + '  ' + s;
     }
     if (pageType == "blog") {
       time.textContent = s;
