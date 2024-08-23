@@ -3,6 +3,7 @@
   --background-color: #F4F1EC;
   --foreground-color: #000000;
   --highlight-color: orangered;
+  --nav-color: #333;
   --box-border-radius: 3px;
   --media-border-radius: 8px;
   --dot-size: 8px;
@@ -70,7 +71,7 @@ a:hover {
 }
 
 a.site-title:link, a.site-title:visited {
-  color: #333;
+  color: var(--nav-color);
   text-decoration: none;
 }
 
@@ -273,6 +274,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .title-box {
+  color: var(--foreground-color);
   border-left: 2px solid var(--border-color);
   padding: 30px 0px 0px 30px;
   font-size: 24px;
@@ -302,6 +304,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .text-box {
+  color: var(--foreground-color);
   border-left: 2px solid var(--border-color);
   padding: 30px 0px 30px 30px;
   font-size: 16px;
@@ -352,6 +355,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .nav-item {
+  color: var(--foreground-color);
   display: flex;
   align-items: center;
   margin-bottom: var(--box-margin);
@@ -363,7 +367,7 @@ audio::-webkit-media-controls-panel {
 .nav-link:visited {
   flex: 1;
   text-decoration: none;
-  color: #333;
+  color: var(--nav-color);
   padding: 5px 10px 5px 10px;
   border-radius: var(--box-border-radius);
   display: inline-block;
