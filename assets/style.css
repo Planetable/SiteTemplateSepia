@@ -251,7 +251,7 @@ hr {
 }
 
 .video-box video {
-  max-width: 100%;
+  max-width: calc(100% - 1px);
   border-radius: var(--media-border-radius);
   box-shadow: var(--shadows);
   border: 1px solid var(--border-color);
@@ -266,7 +266,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .audio-box audio {
-  width: 100%;
+  width: calc(100% - 1px);
   border-radius: var(--media-border-radius);
   box-shadow: var(--shadows);
   border: 1px solid var(--border-color);
