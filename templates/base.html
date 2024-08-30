@@ -29,7 +29,21 @@
       assetsPrefix: '{{ assets_prefix }}',
     };
 
+    {% if planet.acceptsDonation and planet.acceptsDonationETHAddress.count > 0 %}
+    var showDonate = true;
+    var address = "{{ planet.acceptsDonationETHAddress }}";
+    {% else %}
+    var showDonate = false;
+    var address = null;
+    {% endif %}
+
     document.addEventListener('DOMContentLoaded', () => {
+      if (showDonate) {
+        document.getElementById('donate-nav-item').style.display = 'block';
+        initDonateModal(address);
+      } else {
+        document.getElementById('donate-nav-item').style.display = 'none';
+      }
     {% block dom_ready %}
     {% endblock %}
     });
@@ -60,6 +74,20 @@
   <div id="modal" onclick="dismissModal()">
     <img id="modal-img" />
   </div>
+  <div id="donate-modal" onclick="dismissDonateModal()">
+    <div class="donate-modal-content">
+      <div class="donate-modal-title">
+        <img src="{{ assets_prefix }}assets/eth.svg" style="width: 1em; height: 1em;" />
+        <div>Give ETH to <span id="donate-to"></span> <img src="{{ assets_prefix }}assets/copy.svg" style="width: 1em; height: 1em; cursor: pointer; filter: var(--icon-secondary-filter); vertical-align: top;" alt="Copy Address" onclick="copyAddress()"></div>
+      </div>
+      {% if planet.acceptsDonationMessage.count > 0 %}
+      <div class="donate-message">{{ planet.acceptsDonationMessage }}</div>
+      {% endif %}
+      <div class="donate-amount-container"><input type="number" id="donate-amount" step="0.005" value="0.005" min="0" /></div>
+      <div class="donate-button-container"><button id="donate-button" class="btn">Donate</button></div>
+      <div id="message-box"></div>
+    </div>
+  </div>
   <div id="container">
     <div id="main-container">
       {% block main %}
@@ -69,24 +97,26 @@
       {% block aside %}
       <div class="nav">
         <div class="nav-item">
-          <img class="nav-icon" />
           <a href="{{ assets_prefix }}" class="nav-link{% if current_item_type == "index" %} current{% endif %}">Home</a>
         </div>
         {% for item in site_navigation %}
         <div class="nav-item">
-          <img class="nav-icon" />
           <a href="{% if item.externalLink.count > 0 %}{{ item.externalLink }}{% else %}{{ assets_prefix }}{% if item.slug.count > 0 %}{{ item.slug }}{% else %}{{ item.id }}{% endif %}/{% endif %}" class="nav-link{% if item.id == article_id %} current{% endif %}"{% if item.externalLink.count > 0 %} target="_blank"{% endif %}>{{ item.title|escape }}</a>
         </div>
         {% endfor %}
         {% if planet.tags.count > 0 %}
         <div class="nav-item">
-          <img class="nav-icon" />
           <a href="{{ assets_prefix }}tags.html" class="nav-link{% if current_item_type == "tags" %} current{% endif %}">Tags</a>
         </div>
         {% endif %}
         <div class="nav-item">
-          <img class="nav-icon" />
           <a href="{{ assets_prefix }}archive.html" class="nav-link{% if current_item_type == "archive" %} current{% endif %}">Archive</a>
+        </div>
+        <div class="nav-item" id="donate-nav-item">
+          <a href="javascript:showDonateModal()" class="nav-link">
+          <span>Donate <img style="width: calc(1em - 2px); height: calc(1em - 2px); vertical-align: baseline;" src="{{ assets_prefix }}assets/eth.svg" />
+          </span>
+          </a>
         </div>
       </div>
       {% endblock %}

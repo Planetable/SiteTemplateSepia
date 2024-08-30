@@ -1,13 +1,6 @@
-String.prototype.isPicture = function() {
+String.prototype.isPicture = function () {
   return this.endsWith(".jpg") || this.endsWith(".jpeg") || this.endsWith(".png") || this.endsWith(".gif") || this.endsWith(".webp");
 };
-
-const dismissModal = () => {
-  let modal = document.querySelector('#modal');
-  if (modal) {
-    modal.style.display = "none";
-  }
-}
 
 const showModal = (imageUrl) => {
   let modal = document.querySelector('#modal');
@@ -16,7 +9,148 @@ const showModal = (imageUrl) => {
     if (modalImg) {
       modalImg.src = imageUrl;
     }
+    modal.style.opacity = "0";
     modal.style.display = "flex";
+    setTimeout(() => {
+      modal.style.opacity = "1";
+    }, 10);
+    document.body.style.overflow = "hidden";
+  }
+}
+
+const dismissModal = () => {
+  let modal = document.querySelector('#modal');
+  if (modal) {
+    modal.style.opacity = "0";
+    setTimeout(() => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }, 200);
+  }
+}
+
+const donate = async () => {
+  // const chainToUse = '0x1';      // Ethereum mainnet
+  const chainToUse = '0xaa36a7'; // Sepolia
+  const amount = document.getElementById('donate-amount').value;
+  const etherscanPrefixes = {
+    '0x1': 'https://etherscan.io/',
+    '0xaa36a7': 'https://sepolia.etherscan.io/'
+  };
+  if (amount <= 0) {
+    setMessage('Please enter a valid amount');
+    return;
+  }
+  if (typeof window.ethereum === 'undefined') {
+    setMessage('Wallet extension not installed');
+    return;
+  }
+  try {
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    if (accounts.length === 0) {
+      setMessage('Please connect your Ethereum account');
+      return;
+    }
+
+    // Check if MetaMask is on mainnet
+    const chainId = await ethereum.request({ method: 'eth_chainId' });
+    if (chainId !== chainToUse) {
+      try {
+        await ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: chainToUse }],
+        });
+      } catch (switchError) {
+        setMessage('Please switch to Ethereum mainnet');
+        return;
+      }
+    }
+
+    const from = accounts[0];
+    const txHash = await window.ethereum.request({
+      method: 'eth_sendTransaction',
+      params: [
+        {
+          to: address,
+          from: from,
+          value: '0x' + (amount * 1e18).toString(16),
+        },
+      ],
+    });
+    const formattedTxHash = `${txHash.slice(0, 10)}...${txHash.slice(-8)}`;
+
+    setMessage(`👌 Transaction sent: <a href="${etherscanPrefixes[chainToUse]}tx/${txHash}" target="_blank" rel="noopener noreferrer">${formattedTxHash}</a>`);
+  } catch (err) {
+    setMessage('🥲 Transaction failed: ' + err.message);
+  }
+};
+
+const setMessage = (message) => {
+  let messageBox = document.getElementById('message-box');
+  if (messageBox) {
+    messageBox.style.display = 'block';
+    messageBox.innerHTML = message;
+  }
+}
+
+const initDonateModal = (address) => {
+  let donateTo = document.getElementById('donate-to');
+  if (donateTo) {
+    const formattedAddress = `${address.slice(0, 6)}...${address.slice(-4)}`;
+    donateTo.innerHTML = `<a href="https://etherscan.io/address/${address}" target="_blank" rel="noopener noreferrer">${formattedAddress}</a>`;
+  }
+
+  let donateButton = document.getElementById('donate-button');
+  donateButton.addEventListener('click', donate);
+
+  let amountInput = document.getElementById('donate-amount');
+  donateButton.disabled = amountInput.value <= 0;
+  amountInput.addEventListener('change', () => {
+    donateButton.disabled = amountInput.value <= 0;
+  });
+}
+
+const showDonateModal = () => {
+  let modal = document.getElementById('donate-modal');
+  let content = modal.querySelector('.donate-modal-content');
+  if (content) {
+    content.onclick = (e) => {
+      e.stopPropagation();
+    }
+  }
+  if (modal) {
+    modal.style.opacity = "0";
+    modal.style.display = "flex";
+    setTimeout(() => {
+      modal.style.opacity = "1";
+    }, 10);
+    document.body.style.overflow = "hidden";
+  }
+}
+
+const dismissDonateModal = () => {
+  let modal = document.getElementById('donate-modal');
+  if (modal) {
+    let messageBox = document.getElementById('message-box');
+    if (messageBox) {
+      messageBox.innerHTML = '';
+      messageBox.style.display = 'none';
+    }
+    modal.style.opacity = "0";
+    setTimeout(() => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }, 200);
+  }
+}
+
+const copyAddress = () => {
+  if (address && navigator && navigator.clipboard) {
+    navigator.clipboard.writeText(address).then(() => {
+      setMessage('Address copied to clipboard');
+    }).catch(err => {
+      setMessage('Failed to copy address: ', err);
+    });
   }
 }
 
@@ -37,7 +171,7 @@ const setTime = (item) => {
   const articleCreated = Math.round(item.dataset.articleCreated * 1000);
   const pageType = item.dataset.pageType;
   const pinned = item.dataset.pinned;
-  
+
   // Set item time
   let time = item.querySelector('.time');
   if (time) {
@@ -59,9 +193,9 @@ const setTime = (item) => {
       }
     } else {
       let ds = d.toLocaleDateString(undefined, dateOptions);
-      let ts = d.toLocaleTimeString(undefined, {hour: '2-digit', minute:'2-digit'});
-      let ws = d.toLocaleDateString(undefined, {weekday: 'short'});
-      s = ts + ' · ' + ds + ' · ' + ws;  
+      let ts = d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+      let ws = d.toLocaleDateString(undefined, { weekday: 'short' });
+      s = ts + ' · ' + ds + ' · ' + ws;
     }
     if (pinned) {
       s = '📌' + '  ' + s;
@@ -94,7 +228,7 @@ const decorateItem = (item) => {
   const videoFilename = item.dataset.videoFilename;
   const audioFilename = item.dataset.audioFilename;
   const heroImageFilename = item.dataset.heroImageFilename;
-  
+
   if (videoFilename) {
     // Add a video player
     let videoBox = document.createElement("div");
@@ -165,10 +299,10 @@ const decorateItem = (item) => {
     titleBox.style.fontWeight = "500";
     titleBox.style.lineHeight = "1.5";
   }
-  
+
   // Set item time
   setTime(item);
-  
+
   // Fix relative paths
   let imgs = item.querySelectorAll('img');
   let itemHasImgs = false;
@@ -201,6 +335,9 @@ const decorateItem = (item) => {
     if (needsToFix === true) {
       let fixedSrc = `${prefix}${articleId}/${src}`;
       img.setAttribute("src", fixedSrc);
+      if (!img.closest('a')) {
+        img.onclick = () => showModal(fixedSrc);
+      }
     } else {
       console.log(`No need to fix src=${src} on this pageType=${pageType}`);
     }
