@@ -82,6 +82,13 @@ body {
   color: var(--foreground-color);
 }
 
+#donate-amount {
+  font-family: monospace;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 6px;
+}
+
 #message-box {
   display: none;
   font-size: 14px;

@@ -30,8 +30,8 @@ const dismissModal = () => {
 }
 
 const donate = async () => {
-  // const chainToUse = '0x1';      // Ethereum mainnet
-  const chainToUse = '0xaa36a7'; // Sepolia
+  const chainToUse = '0x1';      // Ethereum mainnet
+  // const chainToUse = '0xaa36a7'; // Sepolia
   const amount = document.getElementById('donate-amount').value;
   const etherscanPrefixes = {
     '0x1': 'https://etherscan.io/',
@@ -106,7 +106,9 @@ const initDonateModal = (address) => {
   let amountInput = document.getElementById('donate-amount');
   donateButton.disabled = amountInput.value <= 0;
   amountInput.addEventListener('change', () => {
-    donateButton.disabled = amountInput.value <= 0;
+    let value = amountInput.value;
+    // Verify that the input is a valid float number
+    donateButton.disabled = isNaN(value) || parseFloat(value) <= 0;
   });
 }
 

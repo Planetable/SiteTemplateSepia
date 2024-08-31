@@ -1,0 +1,17 @@
+<div id="donate-modal" onclick="dismissDonateModal()">
+  <div class="donate-modal-content">
+    <div class="donate-modal-title">
+      <img src="{{ assets_prefix }}assets/eth.svg" style="width: 1em; height: 1em;" />
+      <div>Give ETH to <span id="donate-to"></span> <img src="{{ assets_prefix }}assets/copy.svg"
+          style="width: 1em; height: 1em; cursor: pointer; filter: var(--icon-secondary-filter); vertical-align: top;"
+          alt="Copy Address" onclick="copyAddress()"></div>
+    </div>
+    {% if planet.acceptsDonationMessage.count > 0 %}
+    <div class="donate-message">{{ planet.acceptsDonationMessage }}</div>
+    {% endif %}
+    <div class="donate-amount-container"><input type="text" id="donate-amount" value="0.005" />
+    </div>
+    <div class="donate-button-container"><button id="donate-button" class="btn">Donate</button></div>
+    <div id="message-box"></div>
+  </div>
+</div>
