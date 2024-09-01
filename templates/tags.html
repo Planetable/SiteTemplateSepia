@@ -7,7 +7,7 @@
 <div class="tag-cloud">
 {% for tag in tags %}
 <div class="tag-cloud-item">
-  <a href="{{ assets_prefix }}{{ tag }}.html">{{ tags[tag] }}</a>
+  <a href="{{ assets_prefix }}{{ tag }}.html" class="tag">{{ tags[tag] }}</a>
   <span class="tag-cloud-item-count">{{ tag_articles[tag].count }}</span>
 </div>
 {% endfor %}

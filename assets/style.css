@@ -1,9 +1,20 @@
 :root {
-  /* We need a method in Swift to convert the highlight color to a CSS filter for SVG */
+  /* TODO: We need a method in Swift to convert the highlight color to a CSS filter for SVG */
+
+  /* All the CSS variables for colors */
+
   --background-color: #F4F1EC;
   --foreground-color: #000000;
   --highlight-color: orangered;
   --nav-color: #333;
+  --nav-active-color: #FCFCFA;
+  --link-color: #778087;
+  --link-hover-color: #4d5256;
+  --border-color: #E7E5DF;
+  --cell-background-color: #fff;
+  --code-background-color: #f9f9f9;
+  --secondary-color: #999;
+
   --box-border-radius: 3px;
   --media-border-radius: 8px;
   --dot-size: 8px;
@@ -16,13 +27,8 @@
     0 3px 5px rgba(0, 0, 0, 0.02),
     0 5px 8px rgba(0, 0, 0, 0.02);
   --box-margin: 10px;
-  --border-color: rgba(0, 0, 0, 0.05);
-  --link-color: var(--highlight-color);
   --icon-hover-filter: invert(51%) sepia(0%) saturate(0%) hue-rotate(23deg) brightness(90%) contrast(90%);
   --icon-secondary-filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(129deg) brightness(86%) contrast(88%);
-  --cell-background-color: #fff;
-  --code-background-color: #f9f9f9;
-  --secondary-color: #999;
 }
 
 body {
@@ -122,31 +128,31 @@ body {
 
 a:link,
 a:visited {
-  color: #778087;
+  color: var(--link-color);
   text-decoration: none;
   line-break: loose;
 }
 
 a:hover {
-  color: #4d5256;
+  color: var(--link-hover-color);
   text-decoration: underline;
   text-underline-offset: .2rem;
 }
 
 a.site-title:link,
 a.site-title:visited {
-  color: var(--nav-color);
+  color: var(--site-title-color);
   text-decoration: none;
 }
 
 a.site-title:hover {
-  color: #000;
+  color: var(--site-title-hover-color);
   text-decoration: underline;
 }
 
 a.item-link:link,
 a.item-link:visited {
-  color: var(--link-color);
+  color: var(--highlight-color);
   text-decoration: none;
 }
 
@@ -270,6 +276,7 @@ hr {
   font-size: 16px;
   font-weight: 600;
   padding: 0px 20px 0px 20px;
+  color: var(--foreground-color);
 }
 
 .items {
@@ -399,12 +406,12 @@ audio::-webkit-media-controls-panel {
   width: var(--dot-size);
   height: var(--dot-size);
   border-radius: var(--dot-size);
-  background-color: var(--link-color);
+  background-color: var(--highlight-color);
 }
 
 .time-box>.time {
   flex: 1;
-  color: var(--link-color);
+  color: var(--highlight-color);
   font-size: 14px;
   font-weight: 500;
   padding-left: 10px;
@@ -452,12 +459,12 @@ audio::-webkit-media-controls-panel {
 }
 
 .nav-link.current {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: var(--nav-active-color);
   box-shadow: var(--shadows);
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: var(--nav-active-color);
   box-shadow: var(--shadows);
 }
 
@@ -514,7 +521,7 @@ audio::-webkit-media-controls-panel {
 
 .archive-count {
   font-size: 0.8em;
-  color: var(--foreground-secondary-color);
+  color: var(--secondary-color);
 }
 
 .archive-list {
@@ -541,7 +548,7 @@ audio::-webkit-media-controls-panel {
   font-weight: 500;
   margin-bottom: 10px;
   margin-top: 20px;
-  color: var(--foreground-secondary-color);
+  color: var(--secondary-color);
   padding-left: 20px;
 }
 
@@ -565,6 +572,7 @@ audio::-webkit-media-controls-panel {
   background-image: url("tags.png");
   background-repeat: no-repeat;
   display: inline-block;
+  filter: var(--icon-secondary-filter);
 }
 
 .tag:link,
@@ -577,8 +585,8 @@ audio::-webkit-media-controls-panel {
 }
 
 .tag:hover {
-  color: var(--link-color);
-  border-color: var(--link-color);
+  color: var(--highlight-color);
+  border-color: var(--highlight-color);
   text-decoration: none;
 }
 
@@ -605,7 +613,7 @@ audio::-webkit-media-controls-panel {
 
 .tag-count {
   font-size: 0.8em;
-  color: var(--foreground-secondary-color);
+  color: var(--secondary-color);
 }
 
 .tags-container {
@@ -613,7 +621,7 @@ audio::-webkit-media-controls-panel {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
-  color: var(--foreground-secondary-color);
+  color: var(--secondary-color);
   align-items: center;
 }
 
@@ -659,7 +667,7 @@ audio::-webkit-media-controls-panel {
 
 .tag-item:hover {
   text-decoration: none;
-  border-color: var(--link-color);
+  border-color: var(--highlight-color);
   box-shadow: 0px 1px 2px var(--border-color);
 }
 
@@ -799,7 +807,7 @@ a.page:visited {
 }
 
 a.page:hover {
-  color: var(--link-color);
+  color: var(--highlight-color);
   text-decoration: none;
 }
 

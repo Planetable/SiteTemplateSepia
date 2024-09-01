@@ -61,6 +61,38 @@
     {% if user_settings['highlightColor'] %}
     --highlight-color: {{ user_settings['highlightColor'] }};
     {% endif %}
+
+    {% if user_settings['linkColor'] %}
+    --link-color: {{ user_settings['linkColor'] }};
+    {% endif %}
+
+    {% if user_settings['linkHoverColor'] %}
+    --link-hover-color: {{ user_settings['linkHoverColor'] }};
+    {% endif %}
+
+    {% if user_settings['siteTitleColor'] %}
+    --site-title-color: {{ user_settings['siteTitleColor'] }};
+    {% endif %}
+
+    {% if user_settings['siteTitleHoverColor'] %}
+    --site-title-hover-color: {{ user_settings['siteTitleHoverColor'] }};
+    {% endif %}
+
+    {% if user_settings['borderColor'] %}
+    --border-color: {{ user_settings['borderColor'] }};
+    {% endif %}
+
+    {% if user_settings['foregroundSecondaryColor'] %}
+    --secondary-color: {{ user_settings['foregroundSecondaryColor'] }};
+    {% endif %}
+
+    {% if user_settings['navigationLinkColor'] %}
+    --nav-color: {{ user_settings['navigationLinkColor'] }};
+    {% endif %}
+
+    {% if user_settings['navigationActiveItemColor'] %}
+    --nav-active-color: {{ user_settings['navigationActiveItemColor'] }};
+    {% endif %}
   }
   </style>
   {% if planet.plausibleEnabled %}
