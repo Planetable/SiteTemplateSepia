@@ -3,12 +3,12 @@
   "description": "A sepia template designed for microblogging",
   "author": "Planetable Team",
   "authorWebsite": "https://planetable.xyz",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "idealItemsPerPage": 20,
   "generateIndexPagination": true,
   "generateTagPages": true,
   "generateArchive": true,
-  "buildNumber": 66,
+  "buildNumber": 67,
   "settings": {
     "highlightColor": {
       "name": "Highlight Color",
