@@ -3,12 +3,12 @@
   "description": "A sepia template designed for microblogging",
   "author": "Planetable Team",
   "authorWebsite": "https://planetable.xyz",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "idealItemsPerPage": 20,
   "generateIndexPagination": true,
   "generateTagPages": true,
   "generateArchive": true,
-  "buildNumber": 67,
+  "buildNumber": 68,
   "settings": {
     "highlightColor": {
       "name": "Highlight Color",
@@ -31,14 +31,14 @@
     "siteTitleColor": {
       "name": "Site Title Color",
       "type": "string",
-      "defaultValue": "#333",
-      "description": "Site title color, default value: #333 (dark gray)"
+      "defaultValue": "#333333",
+      "description": "Site title color, default value: #333333 (dark gray)"
     },
     "siteTitleHoverColor": {
       "name": "Site Title Hover Color",
       "type": "string",
-      "defaultValue": "#000",
-      "description": "Site title hover color, default value: #000 (black)"
+      "defaultValue": "#000000",
+      "description": "Site title hover color, default value: #000000 (black)"
     },
     "backgroundColor": {
       "name": "Background Color",
@@ -74,7 +74,7 @@
       "name": "Navigation Active Item Color",
       "type": "string",
       "defaultValue": "#FCFCFA",
-      "description": "Navigation active item color, default value: #333333 (brighter than background color)"
+      "description": "Navigation active item color, default value: #FCFCFA (brighter than background color)"
     }
   }
 }
