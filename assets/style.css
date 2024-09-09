@@ -572,7 +572,7 @@ audio::-webkit-media-controls-panel {
   font-weight: 500;
   margin-bottom: 10px;
   margin-top: 20px;
-  color: var(--secondary-color);
+  color: var(--foreground-color);
   padding-left: 20px;
 }
 
