@@ -62,6 +62,14 @@
     --highlight-color: {{ user_settings['highlightColor'] }};
     {% endif %}
 
+    {% if user_settings['highlightColorFilter'] %}
+    --icon-hover-filter: {{ user_settings['highlightColorFilter'] }};
+    {% endif %}
+
+    {% if user_settings['foregroundSecondaryColorFilter'] %}
+    --icon-secondary-filter: {{ user_settings['foregroundSecondaryColorFilter'] }};
+    {% endif %}
+
     {% if user_settings['linkColor'] %}
     --link-color: {{ user_settings['linkColor'] }};
     {% endif %}

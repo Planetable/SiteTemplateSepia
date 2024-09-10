@@ -929,6 +929,7 @@ li:has(input[type="checkbox"]:checked:disabled)::before {
   height: 1em;
   background-size: 1em 1em;
   margin-top: 1px;
+  filter: var(--icon-hover-filter);
   pointer-events: all;
 }
 
