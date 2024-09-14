@@ -288,7 +288,7 @@ hr {
 
 #site-intro {
   padding: 10px 20px 10px 20px;
-  background-color: #fff;
+  background-color: var(--nav-active-color);
   font-size: 16px;
   line-height: 1.6;
   border-radius: var(--box-border-radius);
