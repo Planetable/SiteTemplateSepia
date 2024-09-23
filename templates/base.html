@@ -10,7 +10,7 @@
 
   {% if has_avatar %}
   <link rel="apple-touch-icon" href="{{ assets_prefix }}avatar.png?t={{ build_timestamp }}" />
-  <link rel="shortcut icon" href="{{ assets_prefix }}favicon.ico" />
+  <link rel="shortcut icon" href="{{ assets_prefix }}favicon.ico?t={{ build_timestamp }}" />
   {% endif %}
 
   <link rel="stylesheet" href="{{ assets_prefix }}assets/normalize.css">
