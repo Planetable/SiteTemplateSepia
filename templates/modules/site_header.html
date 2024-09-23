@@ -1,5 +1,5 @@
 <div id="header">
-  <a href="{{ assets_prefix }}"><img src="{% if has_avatar %}{{ assets_prefix }}avatar.png{% else %}{{ assets_prefix }}assets/void.png{% endif %}" class="header-avatar" border="0" /></a>
+  <a href="{{ assets_prefix }}"><img src="{% if has_avatar %}{{ assets_prefix }}avatar.png?t={{ build_timestamp }}{% else %}{{ assets_prefix }}assets/void.png{% endif %}" class="header-avatar" border="0" /></a>
   <div class="header-title"><a href="{{ assets_prefix }}" class="site-title">{{ planet.name|escape }}</a></div>
   <div class="header-icons">
     <a href="{{ assets_prefix }}rss.xml" class="social-link" target="_blank"><img src="{{ assets_prefix }}assets/rss.svg" alt="RSS" class="social-icon" width="1em"></a>
