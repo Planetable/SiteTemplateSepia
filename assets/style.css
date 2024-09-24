@@ -776,7 +776,7 @@ audio::-webkit-media-controls-panel {
   border-radius: var(--media-border-radius);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadows);
-  background-color: rgba(255, 255, 240, 0.2);
+  background-color: var(--nav-active-color);
 }
 
 .content code {
