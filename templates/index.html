@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block head %}
+{% include 'modules/planet_seo.html' %}
+{% endblock %}
 {% block dom_ready %}
 const items = document.querySelectorAll('.item');
 for (let i = 0; i < items.length; i++) {

@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block head %}
+{% include 'modules/post_seo.html' %}
+{% endblock %}
 {% block dom_ready %}
 if (window.PLANET.visitedFromPlanetClient) {
   let aside = document.getElementById("aside-container");

@@ -103,6 +103,7 @@
     {% endif %}
   }
   </style>
+  {% block head %}{% endblock %}
   {% if planet.plausibleEnabled %}
   <script defer data-domain="{{ planet.plausibleDomain }}" src="https://{{ planet.plausibleAPIServer }}/js/plausible.local.js"></script>
   {% endif %}
