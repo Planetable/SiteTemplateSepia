@@ -729,6 +729,10 @@ audio::-webkit-media-controls-panel {
   margin-top: 1.5em;
 }
 
+.content ul {
+  padding-inline-start: 1.4em;
+}
+
 .content ul:first-child,
 .content ol:first-child,
 .content p:first-child,
