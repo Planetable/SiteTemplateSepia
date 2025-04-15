@@ -730,6 +730,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .content ul {
+  margin-left: 0px;
   padding-inline-start: 1.4em;
 }
 
