@@ -314,6 +314,9 @@ const decorateItem = (item) => {
     let src = img.getAttribute("src");
     if (src) {
       itemHasImgs = true;
+    } else {
+      console.log(`img src is empty`);
+      continue;
     }
     let needsToFix = false;
     if (pageType == "blog") {
