@@ -353,6 +353,7 @@ hr {
 
 .video-box video {
   max-width: calc(100% - 1px);
+  max-height: 600px;
   border-radius: var(--media-border-radius);
   box-shadow: var(--shadows);
   border: 1px solid var(--border-color);
