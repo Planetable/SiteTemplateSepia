@@ -8,7 +8,7 @@
   "generateIndexPagination": true,
   "generateTagPages": true,
   "generateArchive": true,
-  "buildNumber": 86,
+  "buildNumber": 88,
   "settings": {
     "highlightColor": {
       "name": "Highlight Color",

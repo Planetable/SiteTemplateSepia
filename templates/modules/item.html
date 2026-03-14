@@ -1,5 +1,5 @@
 <div class="item"
-     data-item-link="{{ assets_prefix }}{{ article.id }}/"
+     data-item-link="{{ assets_prefix }}{% if article.slug.count > 0 %}{{ article.slug }}{% else %}{{ article.id }}{% endif %}/"
      data-article-id="{{ article.id }}"
      data-article-slug="{{ article.slug }}"
      data-article-created="{{ article.created.timeIntervalSince1970 }}"
