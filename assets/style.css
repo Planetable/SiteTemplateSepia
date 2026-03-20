@@ -773,6 +773,10 @@ audio::-webkit-media-controls-panel {
   box-shadow: var(--shadows)
 }
 
+.content img:not([data-processed]) {
+  visibility: hidden;
+}
+
 .content a:link,
 .content a:visited {
   line-break: anywhere;

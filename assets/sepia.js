@@ -348,6 +348,7 @@ const decorateItem = (item) => {
     } else {
       console.log(`No need to fix src=${src} on this pageType=${pageType}`);
     }
+    img.dataset.processed = 'true';
   }
   // Append hero image as img-box if no img tag is present
   if (!itemHasImgs) {
