@@ -762,7 +762,7 @@ audio::-webkit-media-controls-panel {
 }
 
 .content li {
-  line-break: anywhere;
+  line-break: normal;
 }
 
 .content img {
