@@ -10,6 +10,13 @@
   "generateArchive": true,
   "buildNumber": 90,
   "settings": {
+    "showRef": {
+      "name": "Show article reference ID",
+      "type": "boolean",
+      "defaultValue": false,
+      "advanced": true,
+      "description": "Whether to show article reference ID (e.g., SLUG-1234) in the article page, default value: false"
+    },
     "highlightColor": {
       "name": "Highlight Color",
       "type": "string",

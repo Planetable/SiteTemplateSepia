@@ -1,0 +1,2 @@
+- This is a template for a static site builder project at `~/Developer/planet`
+- Template files use Stencil (Jinja2) syntax: https://stencil.fuller.li/en/latest/
